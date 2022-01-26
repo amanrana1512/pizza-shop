@@ -6,6 +6,9 @@ import Contact from './components/Contact';
 import Policy from "./components/Policy";
 import NavBar from "./components/NavBar";
 import HomeScreen from "./Screens/HomeScreen";
+import CartScreen from "./Screens/CartScreen";
+import Register from "./Screens/Register";
+import Login from "./Screens/Login";
 
 
 
@@ -19,6 +22,9 @@ function App() {
         <Route path="/contact" component={Contact} exact />
         <Route path="/policy" component={Policy} exact />
         <Route path="/" component={HomeScreen} exact />
+        <Route path="/cart" component={CartScreen} exact />
+        <Route path="/register" component={Register} exact />
+        <Route path="/login" component={Login} exact />
 
       </Switch>
     </BrowserRouter>
