@@ -27,12 +27,12 @@ const NavBar = () => {
               {currentUser ? (
                 <LinkContainer to="/">
                   <NavDropdown title={currentUser.name} id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">
-                      Order
-                    </NavDropdown.Item>
+                    <LinkContainer to="/orders">
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
                     <NavDropdown.Item
                       onClick={() => {
-                        dispatch(logoutUser())
+                        dispatch(logoutUser());
                       }}
                     >
                       Log out

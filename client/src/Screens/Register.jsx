@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Form, Button, Col } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { useSelector,useDispatch } from "react-redux";
 import {registerUser} from '../action/userAction';
 import Loader from '../components/Loader';
@@ -18,7 +18,7 @@ const Register = () => {
   const dispatch=useDispatch()
 
   const registerhandler=()=>{
-      if(password!=confirmPassword){
+      if(password!==confirmPassword){
           alert('Password do not match')
       }else{
           const user={name,email,password,confirmPassword};

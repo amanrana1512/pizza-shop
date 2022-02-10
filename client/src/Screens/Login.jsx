@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from 'react';
 import {Container,Form,Row,Col,Button} from 'react-bootstrap';
-import {useDispatch,useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {loginUser} from '../action/userAction';
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, Row, Col, Modal} from "react-bootstrap";
-import {useDispatch,useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import { addToCart } from "../action/cartAction";
 
 const Pizza = ({ pizza }) => {
