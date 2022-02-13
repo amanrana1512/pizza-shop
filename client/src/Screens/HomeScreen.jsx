@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { getAllPizzas } from "../action/pizzaAction";
 import Pizza from "../components/Pizza";
 import Loader from "../components/Loader";
+import Filter from "../components/Filter";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const HomeScreen = () => {
           <error>Error while fetching pizzas</error>
         ) : (
           <Row>
+            <Filter/>
             {pizzas.map((pizza) => (
               <Col md="4" key={pizza.name}>
                 <Pizza pizza={pizza} />

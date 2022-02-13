@@ -43,15 +43,32 @@ export const updatePizza = (updatedPizza) => async (dispatch) => {
   }
 };
 
-
-export const deletePizza=(pizzaId)=> async (dispatch)=>{
+export const deletePizza = (pizzaId) => async (dispatch) => {
   try {
-    const res =await axios.post('/api/pizzas/deletepizza',{pizzaId})
-    swal("Pizza deleted successfully","success");
-    window.location.href="/admin/pizzalists"
-    console.log(res)
+    const res = await axios.post("/api/pizzas/deletepizza", { pizzaId });
+    swal("Pizza deleted successfully", "success");
+    window.location.href = "/admin/pizzalists";
+    console.log(res);
   } catch (error) {
     swal("Error while deleting");
-
   }
-}
+};
+
+export const filterPizza = (searchkey, category) => async (dispatch) => {
+  let filteredPizza;
+  dispatch({ type: "GET_PIZZAS_REQUEST" });
+  try {
+    const res = await axios.get("/api/pizzas/getAllPizzas");
+    filteredPizza = res.data.filter((pizza) =>
+      pizza.name.toLowerCase().includes(searchkey)
+    );
+    if (category !== "all") {
+      filteredPizza = res.data.filter(
+        (pizza) => pizza.category.toLowerCase() === category
+      );
+    }
+    dispatch({ type: "GET_PIZZAS_SUCCESS", payload: filteredPizza });
+  } catch (error) {
+    dispatch({ type: "GET_PIZZAS_FAIL", payload: error });
+  }
+};
