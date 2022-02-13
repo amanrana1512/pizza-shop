@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getAllPizzaReducer,addPizzaReducer,getPizzaByIdReducer,updatePizzaByIdReducer } from "./reducers/pizzaReducer";
 import { cartReducer } from "./reducers/cartReducer";
-import { registerUserReducer, loginUserReducer } from "./reducers/userReducer";
+import { registerUserReducer, loginUserReducer ,getAllUsersReducer} from "./reducers/userReducer";
 import {placeOrderReducer,getUserOrderReducer,AllUserOrderReducer} from './reducers/orderReducer'
 
 const currentUser = localStorage.getItem("currentUser")
@@ -19,8 +19,9 @@ const rootReducer = combineReducers({
   addPizzaReducer:addPizzaReducer,
   getPizzaByIdReducer:getPizzaByIdReducer,
   updatePizzaByIdReducer:updatePizzaByIdReducer,
-  AllUserOrderReducer:AllUserOrderReducer
-});
+  AllUserOrderReducer:AllUserOrderReducer,
+  getAllUsersReducer:getAllUsersReducer
+});  
 
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))

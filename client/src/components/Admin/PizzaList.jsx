@@ -65,7 +65,7 @@ const PizzaList = () => {
                           <Link to={`/admin/editpizza/${pizza._id}`}>
                             <AiFillEdit style={{cursor:"pointer"}}/>
                           </Link>
-                          &nbsp; <AiFillDelete style={{color:'red',curson:'pointer'}} onClick={()=>{dispatch(deletePizza(pizza._id))} }/>
+                          &nbsp; <AiFillDelete style={{color:'red',cursor:'pointer'}} onClick={()=>{dispatch(deletePizza(pizza._id))} }/>
                         </td>
                       </tr>
                     ))}
