@@ -38,9 +38,9 @@ const AddNewPizza = () => {
   };
   return (
     <div>
-      {loading && (<Loader/>)}
-      {error && (<Error error="add new pizza error"/>)}
-      {success && (<Success success="Pizza Added successfully"/>)}
+      {loading && <Loader />}
+      {error && <Error error="add new pizza error" />}
+      {success && <Success success="Pizza Added successfully" />}
       <Form onSubmit={submitForm}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formGridEmail">

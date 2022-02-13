@@ -1,9 +1,13 @@
 const mongoose= require('mongoose')
 
  const pizzaSchema = mongoose.Schema({
-     name:{
+    name:{
         type:String,
         required:true
+    },
+    isDelivered:{
+        type:Boolean,
+        required:false
     },
     varients:[],
     prices: [],

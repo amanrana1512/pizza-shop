@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Table, Row } from "react-bootstrap";
-import { getAllPizzas } from "../../action/pizzaAction";
-import {AiFillDelete, AiFillEdit} from 'react-icons/ai'
+import { deletePizza,getAllPizzas } from "../../action/pizzaAction";
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import Pizza from "../Pizza";
 import Loader from "../Loader";
 import Error from "../Error";
@@ -42,18 +43,29 @@ const PizzaList = () => {
                   {pizzas &&
                     pizzas.map((pizza) => (
                       <tr>
-                        <td><img src={pizza.image } alt="logo" width="150px" height="100px"/></td>
+                        <td>
+                          <img
+                            src={pizza.image}
+                            alt="logo"
+                            width="150px"
+                            height="100px"
+                          />
+                        </td>
                         <td>{pizza.name}</td>
                         <td>
                           Small :{pizza.prices[0]["small"]}
-                          <br /> 
+                          <br />
                           Medium :{pizza.prices[0]["medium"]}
                           <br />
                           Large :{pizza.prices[0]["large"]}
                           <br />
                         </td>
                         <td>{pizza.category}</td>
-                        <td><AiFillEdit/>  &nbsp; <AiFillDelete/>
+                        <td>
+                          <Link to={`/admin/editpizza/${pizza._id}`}>
+                            <AiFillEdit style={{cursor:"pointer"}}/>
+                          </Link>
+                          &nbsp; <AiFillDelete style={{color:'red',curson:'pointer'}} onClick={()=>{dispatch(deletePizza(pizza._id))} }/>
                         </td>
                       </tr>
                     ))}
